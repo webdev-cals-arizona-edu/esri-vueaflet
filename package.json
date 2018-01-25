@@ -1,8 +1,15 @@
 {
   "name": "esri-vueaflet",
-  "version": "0.1.0",
-  "description": "A set of Esri-Leaflet components for Vue, utilizing the Vuex plugin, Vueaflet",
-  "author": "Matthew King <>",
+  "version": "0.1.1",
+  "description": "A set of Esri-Leaflet components for Vue, utilizing the Vuex plugin and Vueaflet",
+  "author": {
+    "name": "CALS CCT",
+    "email": "webdev@cals.arizona.edu"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/webdev-cals-arizona-edu/vueaflet"
+  },
   "main": "dist/esri-vueaflet.js",
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
