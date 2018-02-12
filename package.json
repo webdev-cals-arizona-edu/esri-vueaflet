@@ -1,6 +1,6 @@
 {
   "name": "esri-vueaflet",
-  "version": "0.1.3",
+  "version": "0.2.0",
   "description": "A set of Esri-Leaflet components for Vue, utilizing the Vuex plugin and Vueaflet",
   "author": {
     "name": "CALS CCT",
