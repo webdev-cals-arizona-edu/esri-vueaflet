@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/webdev-cals-arizona-edu/vueaflet"
+    "url": "https://github.com/webdev-cals-arizona-edu/esri-vueaflet"
   },
   "main": "dist/esri-vueaflet.js",
   "scripts": {
@@ -17,7 +17,8 @@
     "unit": "jest --config test/unit/jest.conf.js --coverage",
     "test": "npm run unit",
     "lint": "eslint --ext .js,.vue src test/unit/specs",
-    "build": "rimraf ./dist && webpack --config ./build/webpack.package.conf.js"
+    "build": "node build/build.js",
+    "build:npm": "rimraf ./dist && webpack --config ./build/webpack.package.conf.js"
   },
   "dependencies": {
     "esri-leaflet": "^2.1.2",
