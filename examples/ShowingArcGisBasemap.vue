@@ -6,7 +6,7 @@
     </l-map>
 
     <p>
-      <a href="https://github.com/webdev-cals-arizona-edu/vueaflet/blob/master/src/components/Examples/SettingUpMap.vue" target="_blank" rel="noopener">Code on Github</a>
+      <a href="https://github.com/webdev-cals-arizona-edu/esri-vueaflet/blob/master/examples/ShowingArcGisBasemap.vue" target="_blank" rel="noopener">Code on Github</a>
     </p>
   </div>
 </template>
