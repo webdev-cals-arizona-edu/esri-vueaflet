@@ -1,7 +1,17 @@
 <template>
   <div id="app">
-    <h1>From Components</h1>
-    <div class="example-map">
+    <h1>Esri Vueaflet</h1>
+    <p>This library (or set of components) uses <a href="https://cct.cals.arizona.edu/vueaflet/" target="_blank" rel="noopener">Vueaflet</a> as its primary dependency. Similar to how Vueaflet provides a "vuetified" approach to handling Leaflet objects, Esri-Vueaflet provides the same methodology for handling Esri-Leaflet objects. All objects are managed in a Vuex store, providing the developer easy access from anywhere in their Vue application.</p>
+
+    <showing-arc-gis-basemap/>
+    <basemap-with-labels/>
+    <simple-feature-layer/>
+    <simple-image-map-layer/>
+    <clustering-points/>
+
+    <!-- <vector-basemaps/> -->
+    <!-- <h1>From Components</h1> -->
+    <!-- <div class="example-map">
       <l-map map-id="componentMap" :options="{ zoom: 13, center: [45.526, -122.667] }">
         <l-tile-layer v-bind="streetBasemap"/>
         
@@ -18,18 +28,31 @@
         :basemaps="storedBasemaps" 
         :layers="storedLayers" 
         active-basemap="Street"/>
-    </div>
+    </div> -->
   </div>
 </template>
 
 <script>
   import { mapState } from 'vuex'
+  import ShowingArcGisBasemap from '../examples/ShowingArcGisBasemap'
+  import BasemapWithLabels from '../examples/BasemapWithLabels'
+  import SimpleFeatureLayer from '../examples/SimpleFeatureLayer'
+  import SimpleImageMapLayer from '../examples/SimpleImageMapLayer'
+  import ClusteringPoints from '../examples/ClusteringPoints'
+  // import VectorBasemaps from '../examples/VectorBasemaps'
   import { VueafletBus } from 'vueaflet'
 
   export default {
     name: 'app',
 
-    components: {},
+    components: {
+      ShowingArcGisBasemap,
+      BasemapWithLabels,
+      SimpleFeatureLayer,
+      SimpleImageMapLayer,
+      ClusteringPoints
+      // VectorBasemaps
+    },
 
     mounted() {
       VueafletBus.$on('map-componentMap-ready', () => {
@@ -87,12 +110,22 @@
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
-    margin-top: 60px;
+    padding: 60px 0;
   }
 
   .example-map {
-    margin: 0 auto;
+    margin: 0 auto 50px;
     width: 500px;
+    height: 100%;
+  }
+
+  .example-map .map {
     height: 400px;
+  }
+
+  code {
+    padding: 3px 5px;
+    border-radius: 3px;
+    background-color: #eee;
   }
 </style>
