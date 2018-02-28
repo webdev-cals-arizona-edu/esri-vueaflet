@@ -22,8 +22,10 @@
   },
   "dependencies": {
     "esri-leaflet": "^2.1.2",
+    "esri-leaflet-cluster": "^2.0.0",
+    "leaflet.markercluster": "^1.3.0",
     "vue": "^2.5.2",
-    "vueaflet": "^0.3.0",
+    "vueaflet": "^0.4.2",
     "vuex": "^3.0.1"
   },
   "devDependencies": {
@@ -55,7 +57,7 @@
     "friendly-errors-webpack-plugin": "^1.6.1",
     "html-webpack-plugin": "^2.30.1",
     "jest": "^21.2.0",
-    "jest-serializer-vue": "^0.3.0",
+    "jest-serializer-vue": "^0.3.0", 
     "node-notifier": "^5.1.2",
     "optimize-css-assets-webpack-plugin": "^3.2.0",
     "ora": "^1.2.0",

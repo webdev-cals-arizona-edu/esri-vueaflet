@@ -3,26 +3,19 @@
 <script>
   import LayerMixin from 'mixins/LayerMixin'
 
-  let EDynamicMapLayer = {
-    name: 'e-dynamic-map-layer',
+  let EImageMapLayer = {
+    name: 'e-image-map-layer',
     
     mixins: [LayerMixin],
 
     data() {
       return {
-        type: 'dynamicMapLayer',
+        type: 'imageMapLayer',
         defaultOptions: {}
       }
     },
 
     watch: {
-      'options.layers': {
-        handler(newLayers) {
-          this.innerLayer.options.layers = newLayers
-          this.innerLayer.redraw()
-        },
-        deep: true
-      },
       'options.opacity'(newOpacity) {
         if (newOpacity !== null || newOpacity !== undefined) {
           this.innerLayer.options.opacity = newOpacity
@@ -32,5 +25,5 @@
     }
   }
 
-  export default EDynamicMapLayer
+  export default EImageMapLayer
 </script>
