@@ -18,10 +18,10 @@
     "test": "npm run unit",
     "lint": "eslint --ext .js,.vue src test/unit/specs",
     "build": "node build/build.js",
-    "build:npm": "rimraf ./dist && webpack --config ./build/webpack.package.conf.js"
+    "build:npm": "rimraf ./dist && webpack --config ./build/webpack.package.conf.js -p"
   },
   "dependencies": {
-    "esri-leaflet": "^2.1.2",
+    "esri-leaflet": "2.1.4",
     "esri-leaflet-cluster": "^2.0.0",
     "leaflet.markercluster": "^1.3.0",
     "vue": "^2.5.2",

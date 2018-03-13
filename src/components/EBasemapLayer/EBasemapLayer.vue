@@ -2,10 +2,10 @@
 
 <script>
   import Leaflet from 'leaflet'
-  import esri from 'esri-leaflet'
+  import { basemapLayer } from 'esri-leaflet'
   import LayerMixin from 'mixins/LayerMixin'
 
-  let EFeatureLayer = {
+  let EBasemapLayer = {
     name: 'e-basemap-layer',
     
     mixins: [LayerMixin],
@@ -16,7 +16,7 @@
         required: true
       },
       options: Object,
-      vector: Boolean
+      vector: Boolean // vector not supported yet
     },
 
     data() {
@@ -29,14 +29,18 @@
     methods: {
       // overrides "construct" method within mixins/LayerMixin.js
       construct() {
-        if (!this.basemap) throw new Error('esri.basemapLayer requires basemap string for hosted basemap')
+        return basemapLayer(this.basemap, Object.assign({}, this.defaultOptions, this.mergedOptions))
 
-        return (this.vector)
-          ? esri.Vector.basemapLayer(this.basemap, Object.assign({}, this.defaultOptions, this.mergedOptions))
-          : esri.basemapLayer(this.basemap, Object.assign({}, this.defaultOptions, this.mergedOptions))
+        // Vector not supported yet
+
+        // if (!this.basemap) throw new Error('esri.basemapLayer requires basemap string for hosted basemap')
+
+        // return (this.vector)
+        //   ? esri.Vector.basemapLayer(this.basemap, Object.assign({}, this.defaultOptions, this.mergedOptions))
+        //   : 
       }
     }
   }
 
-  export default EFeatureLayer
+  export default EBasemapLayer
 </script>

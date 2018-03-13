@@ -1,6 +1,6 @@
 <template>
   <div class="example-map">
-    <h2>Simple FeatureLayer</h2>
+    <h2>Simple Image Map Layer</h2>
     <l-map :map-id="mapId">
       <e-basemap-layer basemap="Gray"/>
       <e-image-map-layer v-bind="imageMapLayerOptions"/>

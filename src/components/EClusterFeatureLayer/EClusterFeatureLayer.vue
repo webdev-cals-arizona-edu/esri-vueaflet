@@ -1,8 +1,6 @@
 <template></template>
 
 <script>
-  import Leaflet from 'leaflet'
-  import esri from 'esri-leaflet'
   import 'leaflet.markercluster'
   import esriCluster from 'esri-leaflet-cluster'
   import 'leaflet.markercluster/dist/MarkerCluster.Default.css'
@@ -24,9 +22,7 @@
     methods: {
       // overrides "construct" method within mixins/LayerMixin.js
       construct() {
-        esri.Cluster = esriCluster
-
-        return esri.Cluster.featureLayer(Object.assign({}, this.defaultOptions, this.mergedOptions))
+        return esriCluster.featureLayer(Object.assign({}, this.defaultOptions, this.mergedOptions))
       }
     }
   }

@@ -1,5 +1,5 @@
 import Leaflet from 'leaflet'
-import esri from 'esri-leaflet'
+import * as esri from 'esri-leaflet'
 import { mapMutations, mapGetters } from 'vuex'
 import { 
   VUEAFLET_ADD_MAP_LAYER,
