@@ -16,11 +16,14 @@ export default {
     }
   },
 
+  // most esri-leaflet constuctors just take an options object
+  // but Basemap, DynamicMap, FeatureLayer, TiledMapLayer, ImageMapLayer, ClusterFeatureLayer all require URL
   props: {
     options: {
       type: Object,
       required: true,
       validator: (value) => {
+        // make sure props.options.url exists
         if (!value.url) console.error(`${this.type} requires options.url`)
 
         return !!value.url
@@ -38,6 +41,8 @@ export default {
       type: Array,
       default: () => { return [] }
     },
+    // this prop enables VueafletBus which broadcasts all data.events across the app
+    // uses same bus from Vueaflet
     enableBus: Boolean
   },
 
@@ -50,7 +55,10 @@ export default {
   created() {
     let existingLayer = this.getNamedLayer(this.layerName)
     
+    // this.registerOptions is not being used by any parent components yet
     this.mergedOptions = (this.registerOptions) ? this.registerOptions(this.options) : this.options
+    // this.construct is a methed, see below, which allows components that use this mixin to defined their own
+    // construct method to overwrite this, see EClusterFeatureLayer
     this.innerLayer = existingLayer || this.construct()
 
     // if a layer already exists with this name, then just re-add it back to the main map
