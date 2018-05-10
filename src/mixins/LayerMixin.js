@@ -1,6 +1,6 @@
 import Leaflet from 'leaflet'
 import * as esri from 'esri-leaflet'
-import { mapMutations, mapGetters } from 'vuex'
+import { mapMutations, mapGetters, mapActions } from 'vuex'
 import { 
   VUEAFLET_ADD_MAP_LAYER,
   VUEAFLET_ADD_NAMED_LAYER, 
@@ -93,6 +93,7 @@ export default {
       addNamedLayer: VUEAFLET_ADD_NAMED_LAYER,
       removeLayer: VUEAFLET_REMOVE_MAP_LAYER
     }),
+    ...mapActions(['removeNamedLayer']),
     construct() {
       return esri[this.type](Object.assign({}, this.defaultOptions, this.mergedOptions))
     },
@@ -106,6 +107,8 @@ export default {
   },
 
   destroyed() {
-    this.removeLayer({ id: this.mapId, layer: this.innerLayer })
+    this.layerName
+      ? this.removeNamedLayer({ id: this.mapId, name: this.layerName })
+      : this.removeLayer({ id: this.mapId, layer: this.innerLayer })
   }
 }
